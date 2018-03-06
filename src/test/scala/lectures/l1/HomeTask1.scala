@@ -5,14 +5,15 @@ import org.scalatest.{FlatSpec, Matchers}
 object CountRoundToLower {
   def undefined() = throw new IllegalArgumentException("*.5")
 
-  def toHigh(v) = {
-    val number = v * 10 % 10
+  def toHigh(v : Double) : Int = (v * 10 % 10).toInt
 
+  def counter(toUp : Int) : Int = toUp match {
+    case 5           => undefined()
+    case n  if n < 5 => 1
+    case _           => 0
   }
 
-  def counter(toUp) = ???
-
-  def count(list) = list.map(v => counter(toHigh(v))).sum
+  def count(list : Seq[Double]) : Int = list.map(v => counter(toHigh(v))).sum
 }
 
 class CountRoundToLowerTest extends FlatSpec with Matchers {
