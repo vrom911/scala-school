@@ -41,7 +41,7 @@ class SQLAPI(resource: String) {
 
   val connection = (resource: String) => Connection(resource)
 
-  def execute(sql: String): String = ??? // use resource from constructor
+  def execute(sql: String): String = ??? // openConnection compose connection // use resource from constructor
 
 
   def openConnection(connection: Connection): (String) => String =
